@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <meta name="google-signin-client_id" content="159910274769-9sm7mcro5i01cljlagjs2vd0dqldvt5g.apps.googleusercontent.com">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <title>Hello, world!</title>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+  </head>
+  <body>
+
+      <nav>
+        <div id="hamburger">
+            <div class="line left"></div>
+            <div class="line center"></div>
+            <div class="line right"></div>
+        </div>
+        <div id="nav-bar" class="navbar">
+            <ul id="navmenu" class="nav_menu">
+                <li>Home</li>
+                <li>About Us</li>
+                <li>New Project+</li>
+                <li>Upcoming Projects</li>
+                <li class="dropdown">
+                    <a href="#"><img id='profile_img1' class="account_image" src="assets/images/account.png"/></a>
+                  <ul id="account_info_drop">
+                    <li id='profile_img'><img src="assets/images/account.png"/></li>
+                    <li><p style="text-align:center">Welcome <span id="profile_name">Guest</span></p></li>
+                    <li><p id="email_container" class="sign-show" style='font-size:10px;text-align:center'>Email: <span id="email_id"></span></p></li>
+                    <li><hr/></li>
+                    <li><button id="signin2" style="width:240px" type="submit" class="btn btn-light btn-sm">SIGN IN</button></li>
+                    <li><button id="signout" style="width:240px" type="submit" class="btn btn-light btn-sm sign-show">SIGN OUT</button></li>
+                  </ul>
+                </li>
+                <li><div id="signin" style="color:#c71470" class="g-signin2" data-onsuccess="onSignIn"></div></li>
+            </ul>
+        </div>
+
+      </nav>
+      <!-- LANDING PAGE-->
+      <section id="landing_box">
+        <div id="landingpage" class="landing">
+
+        </div>
+
+        <div id="previous" class="chevron previous">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#becee8" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+              <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+          </svg>
+        </div>
+        <div id="next" class="chevron next">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#becee8" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+            <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+          </svg>
+        </div>
+
+        <div id="nav_bar_container" class="main_nav_div">
+        </div>
+      </section>
+
+      <!-- ABOUT US-->
+      <section id='about_page'>
+        <div class='section_title'><p>About Us</p></div>
+        <div id='about_info'>
+          <img src='assets\images\about.jpg'/>
+          <p>Hello Friends, Welcome to my website where you will find projects built using different technologies/Softwares such as Python, Java, HTML, Scratch
+          ,PHP, Machine learning, Data Science. Feel free to browse through the projects, and share your valuable opinions. Here you will also get to download projects or upload your projects. Do share it with others
+          and give your like and support for more such projects. </p>
+        </div>
+      </section>
+
+      <section id="new_project">
+        <div class='section_title'><p>Add New Project</p></div>
+        <div id='new_info'>
+          <div class="project_image"><img src='assets/images/new_project.png'/></div>
+          <div class="project_form">
+            <form action="#" method="post">
+              <div class="mb-3">
+                <label for="firstname" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="firstname" placeholder="Enter First Name">
+              </div>
+              <div class="mb-3">
+                <label for="lastname" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="lastname" placeholder="Enter Last Name">
+              </div>
+              <div class="mb-3">
+                <label for="emailid" class="form-label">Email Id</label>
+                <input type="email" class="form-control" id="emailid" placeholder="Enter Your Email Id">
+              </div>
+              <div class="mb-3">
+                <label for="formFile" class="form-label">Upload Project file/folder</label>
+                <input class="form-control" type="file" id="formFile">
+              </div>
+              <div class="col-auto">
+                <button type="submit" class="btn btn-danger mb-3">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    <script src="assets/js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+  </body>
+  <script>
+  var sgin = false
+  var signin = document.getElementById('signin')
+  var signin2 = document.getElementById('signin2')
+  var signout = document.getElementById('signout')
+  var email_cont =  document.getElementById('email_container')
+  var profile_img = document.querySelector("#profile_img img")
+  var profile_img1 = document.getElementById("profile_img1")
+  signout.addEventListener('click',signOut)
+
+    function onSignIn(googleUser) {
+      //alert('SIGNED')
+      sgin = true
+      var profile = googleUser.getBasicProfile();
+      var pn = document.getElementById('profile_name')
+      pn.innerText = profile.getName()
+
+      //console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+      //console.log('Name: ' + profile.getName());
+      //console.log('Image URL: ' + profile.getImageUrl());
+      //console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+
+      if (sgin)
+      {
+        //alert('SIGIN')
+        signin.classList.add('sign-show')
+        signin2.classList.add('sign-show')
+        signout.classList.remove('sign-show')
+        email_cont.classList.remove('sign-show')
+        var email_id = document.getElementById('email_id')
+        email_id.innerText = profile.getEmail()
+        profile_img.setAttribute('src',profile.getImageUrl())
+        profile_img1.setAttribute('src',profile.getImageUrl())
+      }
+    }
+
+
+    function signOut() {
+        alert('ok calling')
+        sgin = false
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+
+          //alert('User signed out.')
+          //console.log('User signed out.');
+        });
+        if (!sgin)
+        {
+          var pn = document.getElementById('profile_name')
+          pn.innerText = "Guest"
+          signin.classList.remove('sign-show')
+          signin2.classList.remove('sign-show')
+          signout.classList.add('sign-show')
+          email_cont.classList.add('sign-show')
+          profile_img.setAttribute('src',"assets/images/account.png")
+          profile_img1.setAttribute('src',"assets/images/account.png")
+        }
+      }
+  </script>
+</html>
